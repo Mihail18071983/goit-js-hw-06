@@ -41,3 +41,5 @@ refs.createBtn.addEventListener("click", createBoxes);
 refs.input.addEventListener("input", checkCorrectInputEnrering);
 
 refs.destroyBtn.addEventListener("click", destroyBoxes);
+
+
