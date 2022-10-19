@@ -23,17 +23,21 @@ function createBoxes(amount) {
     refs.boxStorage.children[i].style.height = String(30 + 10 * i) + "px";
     refs.boxStorage.children[i].style.backgroundColor = getRandomHexColor();
   }
-   refs.input.value ='';
+  refs.input.value = "";
 }
-
 
 function destroyBoxes() {
   refs.boxStorage.innerHTML = "";
 }
 
-refs.createBtn.addEventListener('click', createBoxes);
+function checkCorrectInputEnrering() {
+  refs.input.value > Number(refs.input.max)
+    ? (refs.createBtn.disabled = true)
+    : (refs.createBtn.disabled = false);
+}
 
-refs.destroyBtn.addEventListener('click', destroyBoxes);
+refs.createBtn.addEventListener("click", createBoxes);
 
-console.dir(refs.input.min);
-console.dir(refs.input.max)
+refs.input.addEventListener("input", checkCorrectInputEnrering);
+
+refs.destroyBtn.addEventListener("click", destroyBoxes);
